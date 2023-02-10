@@ -23,7 +23,7 @@ jobs:
         uses: 1f616neko/actions-cfpage-deploy@main
         with:
           cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN_PAGES }}
-          cloudflare_account_id: ${{ secrets.LOUDFLARE_ACCOUNT_ID }}
+          cloudflare_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           cloudflare_project_name: '1f616emo-test'
           branch: 'main'
           path: '.'
