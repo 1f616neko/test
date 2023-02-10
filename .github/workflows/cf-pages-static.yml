@@ -1,0 +1,29 @@
+name: 'Deploy static content to Cloudflare Pages'
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "cf_pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Deploy to Cloudflare Pages
+        id: deployment
+        uses: 1f616neko/actions-cfpage-deploy@latest
+        with:
+          cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN_PAGES }}
+          cloudflare_account_id: ${{ secrets.LOUDFLARE_ACCOUNT_ID }}
+          cloudflare_project_name: '1f616emo-test'
+          branch: 'main'
+          path: '.'
