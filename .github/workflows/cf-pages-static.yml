@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Deploy to Cloudflare Pages
         id: deployment
-        uses: 1f616neko/actions-cfpage-deploy@latest
+        uses: 1f616neko/actions-cfpage-deploy@main
         with:
           cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN_PAGES }}
           cloudflare_account_id: ${{ secrets.LOUDFLARE_ACCOUNT_ID }}
